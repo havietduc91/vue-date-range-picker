@@ -1,7 +1,7 @@
 # vue-date-range-picker
 A vue component using Bootstrap 4 styles for date range selection
 
-![Vue-Treeselect Screenshot](https://raw.githubusercontent.com/havietduc91/vue-date-range-picker/master/vue-date-picker-demo.png)
+![Vue-Treeselect Screenshot](https://i.imgur.com/TOOHLyY.png)
 
 [Live demo (jsfiddle)](https://jsfiddle.net/Owumaro/qw7mpfr8/)
 
