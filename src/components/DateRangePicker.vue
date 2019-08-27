@@ -1,24 +1,5 @@
 <template>
   <div class="d-flex daterangepicker-row">
-    <!-- Calendars -->
-    <div class="daterangepicker-col" v-for="calendarIndex in calendarCount" :key="calendarIndex">
-      <date-range-picker-calendar
-        :calendarIndex="calendarIndex"
-        :calendarCount="calendarCount"
-        :month="month"
-        :startDate="startDate"
-        :endDate="endDate"
-        :compare="compare"
-        :startDateCompare="startDateCompare"
-        :endDateCompare="endDateCompare"
-        :step="step"
-        v-on:goToPrevMonth="goToPrevMonth"
-        v-on:goToNextMonth="goToNextMonth"
-        v-on:selectDate="selectDate"
-        v-on:nextStep="nextStep"
-      />
-    </div>
-
     <!-- Right form -->
     <div class="daterangepicker-col">
       <div class="form-group">
@@ -29,17 +10,17 @@
       </div>
       <div class="form-group form-inline flex-nowrap">
         <input type="text" class="form-control w-100 daterangepicker-date-input"
-          ref="startDate"
-          :value="startDate | dateFormat"
-          @focus="step = 'selectStartDate'" @blur="inputDate"
+               ref="startDate"
+               :value="startDate | dateFormat"
+               @focus="step = 'selectStartDate'" @blur="inputDate"
         >
         <span class="mx-2">
         <font-awesome-icon icon="caret-right" fixed-width />
         </span>
         <input type="text" class="form-control w-100 daterangepicker-date-input"
-          ref="endDate"
-          :value="endDate | dateFormat"
-          @focus="step = 'selectEndDate'" @blur="inputDate"
+               ref="endDate"
+               :value="endDate | dateFormat"
+               @focus="step = 'selectEndDate'" @blur="inputDate"
         >
       </div>
       <div class="form-group" v-if="allowCompare">
@@ -57,19 +38,19 @@
         </div>
         <div class="form-group form-inline flex-nowrap">
           <input type="text" class="form-control w-100 daterangepicker-date-input compare"
-            ref="startDateCompare"
-            :value="startDateCompare | dateFormat"
-            @focus="step = 'selectStartDateCompare'" @blur="inputDate"
-            @keyup.enter="inputDate"
+                 ref="startDateCompare"
+                 :value="startDateCompare | dateFormat"
+                 @focus="step = 'selectStartDateCompare'" @blur="inputDate"
+                 @keyup.enter="inputDate"
           >
           <span class="mx-2">
           <font-awesome-icon icon="caret-right" fixed-width />
           </span>
           <input type="text" class="form-control w-100 daterangepicker-date-input compare"
-            ref="endDateCompare"
-            :value="endDateCompare | dateFormat"
-            @focus="step = 'selectEndDateCompare'" @blur="inputDate"
-            @keyup.enter="inputDate"
+                 ref="endDateCompare"
+                 :value="endDateCompare | dateFormat"
+                 @focus="step = 'selectEndDateCompare'" @blur="inputDate"
+                 @keyup.enter="inputDate"
           >
         </div>
       </div>
@@ -77,6 +58,25 @@
         <button type="button" class="btn btn-light" @click="cancel">Cancel</button>
         <button type="button" class="btn btn-primary ml-2" :disabled="step != null" @click="submit">Submit</button>
       </div>
+    </div>
+
+    <!-- Calendars -->
+    <div class="daterangepicker-col" v-for="calendarIndex in calendarCount" :key="calendarIndex">
+      <date-range-picker-calendar
+        :calendarIndex="calendarIndex"
+        :calendarCount="calendarCount"
+        :month="month"
+        :startDate="startDate"
+        :endDate="endDate"
+        :compare="compare"
+        :startDateCompare="startDateCompare"
+        :endDateCompare="endDateCompare"
+        :step="step"
+        v-on:goToPrevMonth="goToPrevMonth"
+        v-on:goToNextMonth="goToNextMonth"
+        v-on:selectDate="selectDate"
+        v-on:nextStep="nextStep"
+      />
     </div>
   </div>
 </template>
