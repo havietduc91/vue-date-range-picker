@@ -1,9 +1,9 @@
 {
   "name": "@havietduc91/vue-date-range-picker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A date range picker Forked from Owumaro repository",
   "author": "DucHV",
-  "main": "dist/vue-date-range-picker.js",
+  "main": "dist/vue-date-range-picker.umd.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name vue-date-range-picker src/components/DateRangePicker.vue",
