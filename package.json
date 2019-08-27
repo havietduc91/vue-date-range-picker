@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Owumaro/vue-date-range-picker.git"
+    "url": "git+https://github.com/havietduc91/vue-date-range-picker.git"
   },
   "license": "MIT",
   "eslintConfig": {
