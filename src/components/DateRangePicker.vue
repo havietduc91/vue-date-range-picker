@@ -277,7 +277,6 @@ export default {
         startDate: this.startDate,
         endDate: this.endDate,
         compare: this.compare,
-        timeF: this.compare,
         rangeSelect: this.rangeSelect,
         rangeSelectCompare: this.rangeSelectCompare,
         startDateCompare: this.startDateCompare,
