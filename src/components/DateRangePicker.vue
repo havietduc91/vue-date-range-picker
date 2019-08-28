@@ -122,7 +122,7 @@ export default {
       default: function() {
         return {
           lastMonth: {
-            label: 'Last previous',
+            label: 'Last period',
             startDate: moment.utc().subtract(1, 'month').startOf('month'),
             endDate: moment.utc().subtract(1, 'month').endOf('month').startOf('day')
           }
