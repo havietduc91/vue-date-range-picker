@@ -1,6 +1,6 @@
 {
   "name": "@havietduc91/vue-date-range-picker",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A date range picker Forked from Owumaro repository",
   "author": "DucHV",
   "main": "dist/vue-date-range-picker.umd.js",
