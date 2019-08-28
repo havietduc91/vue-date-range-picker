@@ -65,6 +65,7 @@ Prop | Type | Default | Description
 `calendar-count` | `Number` | `2` | Number of calendars to display
 `allow-compare` | `Boolean` | `true` | Enable/disable the comparison feature
 `ranges` | `Object` | `{ currentMonth: { ... }, lastMonth: { ... } }` | Predefined ranges displayed in select menu(s)
+`compareRanges` | `Object` | `{ currentMonth: { ... }, lastMonth: { ... } }` | Predefined compare ranges displayed in select menu(s)
 `default-range-select` | `String` | `currentMonth` | Key of the range to select by default
 `default-range-select-compare` | `String` | `lastMonth` |  Key of the range to select by default (compare)
 
