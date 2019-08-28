@@ -154,8 +154,8 @@ export default {
     return {
       startDate: moment.utc(),
       endDate: moment.utc(),
-      startDateCompare: moment.utc(),
-      endDateCompare: moment.utc(),
+      startDateCompare: '',
+      endDateCompare: '',
       rangeSelect: null,
       rangeSelectCompare: 'lastPeriod',
       compare: false,
@@ -213,7 +213,7 @@ export default {
       const rangeKey = event.target.value
       let predefinedRange = false
 
-      // Predefined ranges
+      // Predefined compareRanges ranges
       if (this.compareRanges) {
         for (const _rangeKey of Object.keys(this.compareRanges)) {
           const range = this.compareRanges[_rangeKey]
@@ -231,15 +231,19 @@ export default {
       }
 
       // Custom range
+      this.rangeSelectCompare = rangeKey
       if (!predefinedRange && rangeKey === 'custom') {
         this.step = 'startDateCompare'
         this.startDateCompare = moment.utc().startOf('month')
-        this.endDateCompare = moment.utc().endOf('month')
+        this.endDateCompare = moment.utc().endOf('month').startOf('day')
 
         const $vm = this
         setTimeout(function() {
           $vm.$refs.startDateCompare && $vm.$refs.startDateCompare.focus()
         }, 0)
+      } else if (rangeKey === 'lastPeriod') {
+        this.startDateCompare = ''
+        this.endDateCompare = ''
       }
     },
     selectDate: function(date) {
@@ -297,48 +301,6 @@ export default {
   watch: {
     rangeSelect: function(rangeKey) {
       this.selectRange(rangeKey)
-    },
-    range: function() {
-      let predefinedRange = false
-
-      // Predefined ranges
-      for (const rangeKey of Object.keys(this.ranges)) {
-        const range = this.ranges[rangeKey]
-        if (this.startDate.isSame(range.startDate) && this.endDate.isSame(range.endDate)) {
-          predefinedRange = true
-          if (this.rangeSelect !== rangeKey) {
-            this.rangeSelect = rangeKey
-          }
-        }
-      }
-
-      // Custom range
-      if (!predefinedRange) {
-        if (this.rangeSelect !== 'custom') {
-          this.rangeSelect = 'custom'
-        }
-      }
-    },
-    rangeCompare: function() {
-      let predefinedRange = false
-
-      // Predefined ranges
-      for (const rangeKey of Object.keys(this.ranges)) {
-        const range = this.ranges[rangeKey]
-        if (this.startDateCompare.isSame(range.startDate) && this.endDateCompare.isSame(range.endDate)) {
-          predefinedRange = true
-          if (this.rangeSelectCompare !== rangeKey) {
-            this.rangeSelectCompare = rangeKey
-          }
-        }
-      }
-
-      // Custom range
-      if (!predefinedRange) {
-        if (this.rangeSelectCompare !== 'custom') {
-          this.rangeSelectCompare = 'custom'
-        }
-      }
     }
   },
   filters: {
