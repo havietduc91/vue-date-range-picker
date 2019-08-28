@@ -32,7 +32,7 @@
       <div v-if="compare">
         <div class="form-group">
           <select class="custom-select" :class="compare ? 'daterangepicker-range-border compare' : ''" v-model="rangeSelectCompare">
-            <option v-for="(range, rangeKey) in ranges" :key="rangeKey" :value="rangeKey">{{ range.label }}</option>
+            <option v-for="(range, rangeKey) in compareRanges" :key="rangeKey" :value="rangeKey">{{ range.label }}</option>
             <option value="custom">Custom range</option>
           </select>
         </div>
@@ -111,6 +111,18 @@ export default {
           },
           lastMonth: {
             label: 'Last month',
+            startDate: moment.utc().subtract(1, 'month').startOf('month'),
+            endDate: moment.utc().subtract(1, 'month').endOf('month').startOf('day')
+          }
+        }
+      }
+    },
+    compareRanges: {
+      type: Object,
+      default: function() {
+        return {
+          lastMonth: {
+            label: 'Last previous',
             startDate: moment.utc().subtract(1, 'month').startOf('month'),
             endDate: moment.utc().subtract(1, 'month').endOf('month').startOf('day')
           }
