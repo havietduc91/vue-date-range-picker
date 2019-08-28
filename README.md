@@ -90,6 +90,7 @@ npm run build
 
 - Google Analytics date range picker
 - https://github.com/dangrossman/daterangepicker
+- https://github.com/Owumaro/vue-date-range-picker
 
 ## TODO
 - Tests
