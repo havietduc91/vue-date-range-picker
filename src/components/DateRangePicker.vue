@@ -3,7 +3,7 @@
     <!-- Right form -->
     <div class="daterangepicker-col">
       <div class="form-group">
-        <select class="custom-select" :class="compare ? 'daterangepicker-range-border' : ''" v-model="rangeSelect">
+        <select class="custom-select" name="range_select" :class="compare ? 'daterangepicker-range-border' : ''" v-model="rangeSelect">
           <option v-for="(range, rangeKey) in ranges" :key="rangeKey" :value="rangeKey">{{ range.label }}</option>
           <option value="custom">Custom range</option>
         </select>
@@ -33,7 +33,8 @@
       </div>
       <div v-if="compare">
         <div class="form-group">
-          <select class="custom-select" :class="compare ? 'daterangepicker-range-border compare' : ''" v-model="rangeSelectCompare">
+          <select class="custom-select" name="range_select_compare" :class="compare ? 'daterangepicker-range-border compare' : ''" v-model="rangeSelectCompare"
+            @change="selectRangeCompare">
             <option v-for="(range, rangeKey) in compareRanges" :key="rangeKey" :value="rangeKey">{{ range.label }}</option>
             <option value="lastPeriod">Last Period</option>
             <option value="custom">Custom range</option>
@@ -41,39 +42,35 @@
         </div>
         <div class="form-group form-inline flex-nowrap">
           <input type="text" class="form-control w-100 daterangepicker-date-input compare"
-                 v-if="rangeSelectCompare === 'lastPeriod'"
-                 ref="startDateCompare"
-                 :disabled="rangeSelectCompare !== 'custom'"
-                 :value="''"
-                 @focus="step = 'selectStartDateCompare'" @blur="inputDate"
-                 @keyup.enter="inputDate"
+             v-if="rangeSelectCompare === 'lastPeriod'"
+             ref="startDateCompare"
+             disabled
+             value=""
           >
           <input type="text" class="form-control w-100 daterangepicker-date-input compare"
-                 v-if="rangeSelectCompare !== 'lastPeriod'"
-                 ref="startDateCompare"
-                 :disabled="rangeSelectCompare !== 'custom'"
-                 :value="startDateCompare | dateFormat"
-                 @focus="step = 'selectStartDateCompare'" @blur="inputDate"
-                 @keyup.enter="inputDate"
+             v-if="rangeSelectCompare !== 'lastPeriod'"
+             ref="startDateCompare"
+             :disabled="rangeSelectCompare !== 'custom'"
+             :value="startDateCompare | dateFormat"
+             @focus="step = 'selectStartDateCompare'" @blur="inputDate"
+             @keyup.enter="inputDate"
           >
           <span class="mx-2">
           <font-awesome-icon icon="caret-right" fixed-width />
           </span>
           <input type="text" class="form-control w-100 daterangepicker-date-input compare"
-                 ref="endDateCompare"
-                 v-if="rangeSelectCompare === 'lastPeriod'"
-                 :value="''"
-                 :disabled="rangeSelectCompare !== 'custom'"
-                 @focus="step = 'selectEndDateCompare'" @blur="inputDate"
-                 @keyup.enter="inputDate"
+             v-if="rangeSelectCompare === 'lastPeriod'"
+             value=""
+             ref="endDateCompare"
+             disabled
           >
           <input type="text" class="form-control w-100 daterangepicker-date-input compare"
-                 ref="endDateCompare"
-                 v-if="rangeSelectCompare !== 'lastPeriod'"
-                 :value="endDateCompare | dateFormat"
-                 :disabled="rangeSelectCompare !== 'custom'"
-                 @focus="step = 'selectEndDateCompare'" @blur="inputDate"
-                 @keyup.enter="inputDate"
+             ref="endDateCompare"
+             v-if="rangeSelectCompare !== 'lastPeriod'"
+             :value="endDateCompare | dateFormat"
+             :disabled="rangeSelectCompare !== 'custom'"
+             @focus="step = 'selectEndDateCompare'" @blur="inputDate"
+             @keyup.enter="inputDate"
           >
         </div>
       </div>
@@ -206,10 +203,14 @@ export default {
       // Custom range
       if (!predefinedRange && this.step == null) {
         this.step = 'selectStartDate'
-        this.$refs.startDate.focus()
+        const $vm = this
+        setTimeout(function() {
+          $vm.$refs.startDate && $vm.$refs.startDate.focus()
+        }, 0)
       }
     },
-    selectRangeCompare: function(rangeKey) {
+    selectRangeCompare: function(event) {
+      const rangeKey = event.target.value
       let predefinedRange = false
 
       // Predefined ranges
@@ -230,10 +231,15 @@ export default {
       }
 
       // Custom range
-      if (!predefinedRange && this.step === null && rangeKey === 'custom') {
-        this.$refs.startDateCompare && this.$refs.startDateCompare.focus()
+      if (!predefinedRange && rangeKey === 'custom') {
+        this.step = 'startDateCompare'
         this.startDateCompare = moment.utc().startOf('month')
         this.endDateCompare = moment.utc().endOf('month')
+
+        const $vm = this
+        setTimeout(function() {
+          $vm.$refs.startDateCompare && $vm.$refs.startDateCompare.focus()
+        }, 0)
       }
     },
     selectDate: function(date) {
@@ -291,9 +297,6 @@ export default {
   watch: {
     rangeSelect: function(rangeKey) {
       this.selectRange(rangeKey)
-    },
-    rangeSelectCompare: function(rangeKey) {
-      this.selectRangeCompare(rangeKey)
     },
     range: function() {
       let predefinedRange = false
