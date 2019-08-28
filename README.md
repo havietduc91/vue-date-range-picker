@@ -27,6 +27,7 @@ npm install --save @havietduc91/vue-date-range-picker
 ```js
 // Import the component
 import DateRangePicker from '@havietduc91/vue-date-range-picker'
+import '@havietduc91/vue-date-range-picker/dist/vue-date-range-picker.css'
 
 export default {
   // Register the component
