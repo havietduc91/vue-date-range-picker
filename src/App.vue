@@ -4,7 +4,24 @@
 
     <h3 class="pb-2 border-bottom">Inline integration</h3>
     <div class="mb-4">
-      <date-range-picker v-on:submit="submitted" />
+      <date-range-picker
+        v-on:submit="submitted"
+        :default-range-select-compare="'custom'"
+        :default-start-date-compare="'2019/07/01'"
+        :default-compare="true"
+        :default-compare-cost-type="'B'"
+        :compare-cost-type-options="[
+          {
+             text: 'I',
+             value: 'I',
+          },
+          {
+             text: 'B',
+             value: 'B',
+             isDefault: true
+          }
+        ]"
+      />
     </div>
 
     <h3 class="pb-2 border-bottom">Modal integration</h3>

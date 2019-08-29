@@ -21085,12 +21085,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/DateRangePicker.vue?vue&type=template&id=42ec295a&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"d-flex daterangepicker-row"},[_c('div',{staticClass:"daterangepicker-col"},[_c('div',{staticClass:"form-group"},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.rangeSelect),expression:"rangeSelect"}],staticClass:"custom-select",class:_vm.compare ? 'daterangepicker-range-border' : '',attrs:{"name":"range_select"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.rangeSelect=$event.target.multiple ? $$selectedVal : $$selectedVal[0]}}},[_vm._l((_vm.ranges),function(range,rangeKey){return _c('option',{key:rangeKey,domProps:{"value":rangeKey}},[_vm._v(_vm._s(range.label))])}),_c('option',{attrs:{"value":"custom"}},[_vm._v("Custom range")])],2)]),_c('div',{staticClass:"form-group form-inline flex-nowrap"},[_c('input',{ref:"startDate",staticClass:"form-control w-100 daterangepicker-date-input",attrs:{"type":"text","disabled":_vm.rangeSelect !== 'custom'},domProps:{"value":_vm._f("dateFormat")(_vm.startDate)},on:{"focus":function($event){_vm.step = 'selectStartDate'},"blur":_vm.inputDate}}),_c('span',{staticClass:"mx-2"},[_c('font-awesome-icon',{attrs:{"icon":"caret-right","fixed-width":""}})],1),_c('input',{ref:"endDate",staticClass:"form-control w-100 daterangepicker-date-input",attrs:{"type":"text","disabled":_vm.rangeSelect !== 'custom'},domProps:{"value":_vm._f("dateFormat")(_vm.endDate)},on:{"focus":function($event){_vm.step = 'selectEndDate'},"blur":_vm.inputDate}})]),(_vm.allowCompare)?_c('div',{staticClass:"form-group"},[_c('div',{staticClass:"custom-control custom-checkbox"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.compare),expression:"compare"}],staticClass:"custom-control-input",attrs:{"type":"checkbox","id":'date-range-picker-compare-' + _vm._uid},domProps:{"checked":Array.isArray(_vm.compare)?_vm._i(_vm.compare,null)>-1:(_vm.compare)},on:{"change":function($event){var $$a=_vm.compare,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.compare=$$a.concat([$$v]))}else{$$i>-1&&(_vm.compare=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}}else{_vm.compare=$$c}}}}),_c('label',{staticClass:"custom-control-label",attrs:{"for":'date-range-picker-compare-' + _vm._uid}},[_vm._v("Compare")])])]):_vm._e(),(_vm.compare)?_c('div',[_c('div',{staticClass:"form-group"},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.rangeSelectCompare),expression:"rangeSelectCompare"}],staticClass:"custom-select",class:_vm.compare ? 'daterangepicker-range-border compare' : '',attrs:{"name":"range_select_compare"},on:{"change":[function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.rangeSelectCompare=$event.target.multiple ? $$selectedVal : $$selectedVal[0]},_vm.selectRangeCompare]}},[_vm._l((_vm.compareRanges),function(range,rangeKey){return _c('option',{key:rangeKey,domProps:{"value":rangeKey}},[_vm._v(_vm._s(range.label))])}),_c('option',{attrs:{"value":"lastPeriod"}},[_vm._v("Last Period")]),_c('option',{attrs:{"value":"custom"}},[_vm._v("Custom range")])],2)]),_c('div',{staticClass:"form-group form-inline flex-nowrap"},[(_vm.rangeSelectCompare === 'lastPeriod')?_c('input',{ref:"startDateCompare",staticClass:"form-control w-100 daterangepicker-date-input compare",attrs:{"type":"text","disabled":"","value":""}}):_vm._e(),(_vm.rangeSelectCompare !== 'lastPeriod')?_c('input',{ref:"startDateCompare",staticClass:"form-control w-100 daterangepicker-date-input compare",attrs:{"type":"text","disabled":_vm.rangeSelectCompare !== 'custom'},domProps:{"value":_vm._f("dateFormat")(_vm.startDateCompare)},on:{"focus":function($event){_vm.step = 'selectStartDateCompare'},"blur":_vm.inputDate,"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.inputDate($event)}}}):_vm._e(),_c('span',{staticClass:"mx-2"},[_c('font-awesome-icon',{attrs:{"icon":"caret-right","fixed-width":""}})],1),(_vm.rangeSelectCompare === 'lastPeriod')?_c('input',{ref:"endDateCompare",staticClass:"form-control w-100 daterangepicker-date-input compare",attrs:{"type":"text","value":"","disabled":""}}):_vm._e(),(_vm.rangeSelectCompare !== 'lastPeriod')?_c('input',{ref:"endDateCompare",staticClass:"form-control w-100 daterangepicker-date-input compare",attrs:{"type":"text","disabled":_vm.rangeSelectCompare !== 'custom'},domProps:{"value":_vm._f("dateFormat")(_vm.endDateCompare)},on:{"focus":function($event){_vm.step = 'selectEndDateCompare'},"blur":_vm.inputDate,"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.inputDate($event)}}}):_vm._e()]),(_vm.compareCostTypeOptions.length > 0)?_c('div',{staticClass:"form-group"},[_c('b-form-radio-group',{staticClass:"mb-1",attrs:{"options":_vm.compareCostTypeOptions,"stacked":""},on:{"change":_vm.changeCompareCostType},model:{value:(_vm.compareCostType),callback:function ($$v) {_vm.compareCostType=$$v},expression:"compareCostType"}})],1):_vm._e()]):_vm._e(),_c('div',{staticClass:"form-group form-inline justify-content-end mb-0"},[_c('button',{staticClass:"btn btn-light",attrs:{"type":"button"},on:{"click":_vm.cancel}},[_vm._v("Cancel")]),_c('button',{staticClass:"btn btn-primary ml-2",attrs:{"type":"button","disabled":_vm.step != null},on:{"click":_vm.submit}},[_vm._v("Submit")])])]),_vm._l((_vm.calendarCount),function(calendarIndex){return _c('div',{key:calendarIndex,staticClass:"daterangepicker-col"},[_c('date-range-picker-calendar',{attrs:{"calendarIndex":calendarIndex,"calendarCount":_vm.calendarCount,"month":_vm.month,"startDate":_vm.startDate,"endDate":_vm.endDate,"compare":_vm.compare,"startDateCompare":_vm.startDateCompare,"endDateCompare":_vm.endDateCompare,"step":_vm.step},on:{"goToPrevMonth":_vm.goToPrevMonth,"goToNextMonth":_vm.goToNextMonth,"selectDate":_vm.selectDate,"nextStep":_vm.nextStep}})],1)})],2)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/DateRangePicker.vue?vue&type=template&id=7fd96223&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"d-flex daterangepicker-row"},[_c('div',{staticClass:"daterangepicker-col"},[_c('div',{staticClass:"form-group"},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.rangeSelect),expression:"rangeSelect"}],staticClass:"custom-select",class:_vm.compare ? 'daterangepicker-range-border' : '',attrs:{"name":"range_select"},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.rangeSelect=$event.target.multiple ? $$selectedVal : $$selectedVal[0]}}},[_vm._l((_vm.ranges),function(range,rangeKey){return _c('option',{key:rangeKey,domProps:{"value":rangeKey}},[_vm._v(_vm._s(range.label))])}),_c('option',{attrs:{"value":"custom"}},[_vm._v("Custom range")])],2)]),_c('div',{staticClass:"form-group form-inline flex-nowrap"},[_c('input',{ref:"startDate",staticClass:"form-control w-100 daterangepicker-date-input",attrs:{"type":"text","disabled":_vm.rangeSelect !== 'custom'},domProps:{"value":_vm._f("dateFormat")(_vm.startDate)},on:{"focus":function($event){_vm.step = 'selectStartDate'},"blur":_vm.inputDate}}),_c('span',{staticClass:"mx-2"},[_c('font-awesome-icon',{attrs:{"icon":"caret-right","fixed-width":""}})],1),_c('input',{ref:"endDate",staticClass:"form-control w-100 daterangepicker-date-input",attrs:{"type":"text","disabled":_vm.rangeSelect !== 'custom'},domProps:{"value":_vm._f("dateFormat")(_vm.endDate)},on:{"focus":function($event){_vm.step = 'selectEndDate'},"blur":_vm.inputDate}})]),(_vm.allowCompare)?_c('div',{staticClass:"form-group"},[_c('div',{staticClass:"custom-control custom-checkbox"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.compare),expression:"compare"}],staticClass:"custom-control-input",attrs:{"type":"checkbox","id":'date-range-picker-compare-' + _vm._uid},domProps:{"checked":Array.isArray(_vm.compare)?_vm._i(_vm.compare,null)>-1:(_vm.compare)},on:{"change":function($event){var $$a=_vm.compare,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.compare=$$a.concat([$$v]))}else{$$i>-1&&(_vm.compare=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}}else{_vm.compare=$$c}}}}),_c('label',{staticClass:"custom-control-label",attrs:{"for":'date-range-picker-compare-' + _vm._uid}},[_vm._v("Compare")])])]):_vm._e(),(_vm.compare)?_c('div',[_c('div',{staticClass:"form-group"},[_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.rangeSelectCompare),expression:"rangeSelectCompare"}],staticClass:"custom-select",class:_vm.compare ? 'daterangepicker-range-border compare' : '',attrs:{"name":"range_select_compare"},on:{"change":[function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.rangeSelectCompare=$event.target.multiple ? $$selectedVal : $$selectedVal[0]},_vm.onRangeSelectCompareChanged]}},[_vm._l((_vm.compareRanges),function(range,rangeKey){return _c('option',{key:rangeKey,domProps:{"value":rangeKey}},[_vm._v(_vm._s(range.label))])}),_c('option',{attrs:{"value":"last_period"}},[_vm._v("Last Period")]),_c('option',{attrs:{"value":"custom"}},[_vm._v("Custom range")])],2)]),_c('div',{staticClass:"form-group form-inline flex-nowrap"},[(_vm.rangeSelectCompare === 'last_period')?_c('input',{ref:"startDateCompare",staticClass:"form-control w-100 daterangepicker-date-input compare",attrs:{"type":"text","disabled":"","value":""}}):_vm._e(),(_vm.rangeSelectCompare !== 'last_period')?_c('input',{ref:"startDateCompare",staticClass:"form-control w-100 daterangepicker-date-input compare",attrs:{"type":"text","disabled":_vm.rangeSelectCompare !== 'custom'},domProps:{"value":_vm._f("dateFormat")(_vm.startDateCompare)},on:{"focus":function($event){_vm.step = 'selectStartDateCompare'},"blur":_vm.inputDate,"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.inputDate($event)}}}):_vm._e(),_c('span',{staticClass:"mx-2"},[_c('font-awesome-icon',{attrs:{"icon":"caret-right","fixed-width":""}})],1),(_vm.rangeSelectCompare === 'last_period')?_c('input',{ref:"endDateCompare",staticClass:"form-control w-100 daterangepicker-date-input compare",attrs:{"type":"text","value":"","disabled":""}}):_vm._e(),(_vm.rangeSelectCompare !== 'last_period')?_c('input',{ref:"endDateCompare",staticClass:"form-control w-100 daterangepicker-date-input compare",attrs:{"type":"text","disabled":_vm.rangeSelectCompare !== 'custom'},domProps:{"value":_vm._f("dateFormat")(_vm.endDateCompare)},on:{"focus":function($event){_vm.step = 'selectEndDateCompare'},"blur":_vm.inputDate,"keyup":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.inputDate($event)}}}):_vm._e()]),(_vm.compareCostTypeOptions.length > 0)?_c('div',{staticClass:"form-group"},[_c('b-form-radio-group',{staticClass:"mb-1",attrs:{"options":_vm.compareCostTypeOptions,"stacked":""},on:{"change":_vm.changeCompareCostType},model:{value:(_vm.compareCostType),callback:function ($$v) {_vm.compareCostType=$$v},expression:"compareCostType"}})],1):_vm._e()]):_vm._e(),_c('div',{staticClass:"form-group form-inline justify-content-end mb-0"},[_c('button',{staticClass:"btn btn-light",attrs:{"type":"button"},on:{"click":_vm.cancel}},[_vm._v("Cancel")]),_c('button',{staticClass:"btn btn-primary ml-2",attrs:{"type":"button","disabled":_vm.step != null},on:{"click":_vm.submit}},[_vm._v("Submit")])])]),_vm._l((_vm.calendarCount),function(calendarIndex){return _c('div',{key:calendarIndex,staticClass:"daterangepicker-col"},[_c('date-range-picker-calendar',{attrs:{"calendarIndex":calendarIndex,"calendarCount":_vm.calendarCount,"month":_vm.month,"startDate":_vm.startDate,"endDate":_vm.endDate,"compare":_vm.compare,"startDateCompare":_vm.startDateCompare,"endDateCompare":_vm.endDateCompare,"step":_vm.step},on:{"goToPrevMonth":_vm.goToPrevMonth,"goToNextMonth":_vm.goToNextMonth,"selectDate":_vm.selectDate,"nextStep":_vm.nextStep}})],1)})],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/DateRangePicker.vue?vue&type=template&id=42ec295a&
+// CONCATENATED MODULE: ./src/components/DateRangePicker.vue?vue&type=template&id=7fd96223&
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/object/keys.js
 var keys = __webpack_require__("a4bb");
@@ -26738,12 +26738,12 @@ var _iconsCache = {
 // EXTERNAL MODULE: ./node_modules/@fortawesome/vue-fontawesome/index.es.js
 var vue_fontawesome_index_es = __webpack_require__("ad3d");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/DateRangePickerCalendar.vue?vue&type=template&id=cf65c300&
-var DateRangePickerCalendarvue_type_template_id_cf65c300_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"daterangepicker-calendar"},[_c('div',{staticClass:"d-flex align-items-center"},[_c('div',{staticClass:"p-1",class:_vm.calendarIndex == 1 ? '' : 'invisible'},[_c('button',{staticClass:"btn btn-sm btn-light",attrs:{"type":"button"},on:{"mousedown":function($event){$event.preventDefault();},"click":_vm.goToPrevMonth}},[_c('font-awesome-icon',{attrs:{"icon":"caret-left","fixed-width":""}})],1)]),_c('div',{staticClass:"p-1 col text-center"},[_vm._v("\n      "+_vm._s(_vm.displayMonth.format('MMMM YYYY'))+"\n    ")]),_c('div',{staticClass:"p-1",class:_vm.calendarIndex == _vm.calendarCount ? '' : 'invisible'},[_c('button',{staticClass:"btn btn-sm btn-light",attrs:{"type":"button"},on:{"mousedown":function($event){$event.preventDefault();},"click":_vm.goToNextMonth}},[_c('font-awesome-icon',{attrs:{"icon":"caret-right","fixed-width":""}})],1)])]),_c('div',{staticClass:"d-flex justify-content-between text-center daterangepicker-calendar-row"},_vm._l((_vm.daysOfFirstWeek),function(day){return _c('div',{key:day.format('D'),staticClass:"col-day"},[_vm._v(_vm._s(day.format('ddd')))])}),0),_c('div',{staticClass:"d-flex flex-wrap justify-content-between text-center daterangepicker-calendar-row"},_vm._l((_vm.days),function(day){return _c('div',{key:day.format('M-D'),staticClass:"col-day",class:_vm.dayClass(day),on:{"mouseover":function($event){return _vm.dayMouseOver(day)},"mousedown":function($event){$event.preventDefault();},"click":function($event){return _vm.dayClick(day)}}},[_vm._v("\n      "+_vm._s(day.format('D'))+"\n    ")])}),0)])}
-var DateRangePickerCalendarvue_type_template_id_cf65c300_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1dcdf57b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/DateRangePickerCalendar.vue?vue&type=template&id=518ee21e&
+var DateRangePickerCalendarvue_type_template_id_518ee21e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"daterangepicker-calendar"},[_c('div',{staticClass:"d-flex align-items-center"},[_c('div',{staticClass:"p-1",class:_vm.calendarIndex == 1 ? '' : 'invisible'},[_c('button',{staticClass:"btn btn-sm btn-light",attrs:{"type":"button"},on:{"mousedown":function($event){$event.preventDefault();},"click":_vm.goToPrevMonth}},[_c('font-awesome-icon',{attrs:{"icon":"caret-left","fixed-width":""}})],1)]),_c('div',{staticClass:"p-1 col text-center"},[_vm._v("\n      "+_vm._s(_vm.displayMonth.format('MM/YYYY'))+"\n    ")]),_c('div',{staticClass:"p-1",class:_vm.calendarIndex == _vm.calendarCount ? '' : 'invisible'},[_c('button',{staticClass:"btn btn-sm btn-light",attrs:{"type":"button"},on:{"mousedown":function($event){$event.preventDefault();},"click":_vm.goToNextMonth}},[_c('font-awesome-icon',{attrs:{"icon":"caret-right","fixed-width":""}})],1)])]),_c('div',{staticClass:"d-flex justify-content-between text-center daterangepicker-calendar-row"},_vm._l((_vm.daysOfFirstWeek),function(day){return _c('div',{key:day.format('D'),staticClass:"col-day"},[_vm._v(_vm._s(day.format('ddd')))])}),0),_c('div',{staticClass:"d-flex flex-wrap justify-content-between text-center daterangepicker-calendar-row"},_vm._l((_vm.days),function(day){return _c('div',{key:day.format('M-D'),staticClass:"col-day",class:_vm.dayClass(day),on:{"mouseover":function($event){return _vm.dayMouseOver(day)},"mousedown":function($event){$event.preventDefault();},"click":function($event){return _vm.dayClick(day)}}},[_vm._v("\n      "+_vm._s(day.format('D'))+"\n    ")])}),0)])}
+var DateRangePickerCalendarvue_type_template_id_518ee21e_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/DateRangePickerCalendar.vue?vue&type=template&id=cf65c300&
+// CONCATENATED MODULE: ./src/components/DateRangePickerCalendar.vue?vue&type=template&id=518ee21e&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/DateRangePickerCalendar.vue?vue&type=script&lang=js&
 //
@@ -26973,8 +26973,8 @@ function normalizeComponent (
 
 var component = normalizeComponent(
   components_DateRangePickerCalendarvue_type_script_lang_js_,
-  DateRangePickerCalendarvue_type_template_id_cf65c300_render,
-  DateRangePickerCalendarvue_type_template_id_cf65c300_staticRenderFns,
+  DateRangePickerCalendarvue_type_template_id_518ee21e_render,
+  DateRangePickerCalendarvue_type_template_id_518ee21e_staticRenderFns,
   false,
   null,
   null,
@@ -27120,6 +27120,10 @@ index_es["c" /* library */].add(faCaretRight);
         return [];
       }
     },
+    defaultCompareCostType: {
+      type: String,
+      default: ''
+    },
     ranges: {
       type: Object,
       default: function _default() {
@@ -27147,7 +27151,27 @@ index_es["c" /* library */].add(faCaretRight);
     },
     defaultRangeSelectCompare: {
       type: String,
-      default: 'lastPeriod'
+      default: 'last_period'
+    },
+    defaultStartDate: {
+      type: String,
+      default: null
+    },
+    defaultEndDate: {
+      type: String,
+      default: null
+    },
+    defaultStartDateCompare: {
+      type: String,
+      default: null
+    },
+    defaultEndDateCompare: {
+      type: String,
+      default: null
+    },
+    defaultCompare: {
+      type: Boolean,
+      default: false
     }
   },
   data: function data() {
@@ -27157,8 +27181,8 @@ index_es["c" /* library */].add(faCaretRight);
       startDateCompare: '',
       endDateCompare: '',
       rangeSelect: null,
-      rangeSelectCompare: 'lastPeriod',
-      compareCostType: 'individual_cost',
+      rangeSelectCompare: 'last_period',
+      compareCostType: null,
       compare: false,
       month: moment_default.a.utc().subtract(1, 'month').startOf('month'),
       step: null
@@ -27217,8 +27241,11 @@ index_es["c" /* library */].add(faCaretRight);
     changeCompareCostType: function changeCompareCostType(checked) {
       this.compareCostType = checked;
     },
-    selectRangeCompare: function selectRangeCompare(event) {
+    onRangeSelectCompareChanged: function onRangeSelectCompareChanged(event) {
       var rangeKey = event.target.value;
+      this.selectRangeCompare(rangeKey);
+    },
+    selectRangeCompare: function selectRangeCompare(rangeKey) {
       var predefinedRange = false; // Predefined compareRanges ranges
 
       if (this.compareRanges) {
@@ -27253,7 +27280,7 @@ index_es["c" /* library */].add(faCaretRight);
         setTimeout(function () {
           $vm.$refs.startDateCompare && $vm.$refs.startDateCompare.focus();
         }, 0);
-      } else if (rangeKey === 'lastPeriod') {
+      } else if (rangeKey === 'last_period') {
         this.startDateCompare = '';
         this.endDateCompare = '';
       }
@@ -27316,7 +27343,12 @@ index_es["c" /* library */].add(faCaretRight);
   watch: {
     rangeSelect: function rangeSelect(rangeKey) {
       this.selectRange(rangeKey);
-    }
+    } // rangeSelectCompare: function(rangeKey) {
+    //   if (rangeKey) {
+    //     this.selectRangeCompare(rangeKey)
+    //   }
+    // }
+
   },
   filters: {
     dateFormat: function dateFormat(value) {
@@ -27327,6 +27359,41 @@ index_es["c" /* library */].add(faCaretRight);
     // Initialize ranges
     this.rangeSelect = this.defaultRangeSelect;
     this.rangeSelectCompare = this.defaultRangeSelectCompare;
+    this.compare = this.defaultCompare;
+
+    if (this.rangeSelect === 'custom') {
+      this.startDate = moment_default.a.utc().startOf('month');
+
+      if (this.defaultEndDate) {
+        this.startDate = moment_default.a.utc(this.defaultStartDate, 'YYYY/MM/DD');
+      }
+
+      this.endDate = moment_default.a.utc().endOf('month').startOf('day');
+
+      if (this.defaultEndDate) {
+        this.endDate = moment_default.a.utc(this.defaultEndDate, 'YYYY/MM/DD');
+      }
+    }
+
+    if (this.rangeSelectCompare === 'custom') {
+      this.startDateCompare = moment_default.a.utc().startOf('month');
+
+      if (this.defaultStartDateCompare) {
+        this.startDateCompare = moment_default.a.utc(this.defaultStartDateCompare, 'YYYY/MM/DD');
+      }
+
+      this.endDateCompare = moment_default.a.utc().endOf('month').startOf('day');
+
+      if (this.defaultEndDateCompare) {
+        this.endDateCompare = moment_default.a.utc(this.defaultEndDateCompare, 'YYYY/MM/DD');
+      }
+    }
+
+    if (this.defaultCompareCostType) {
+      this.compareCostType = this.defaultCompareCostType;
+    }
+
+    console.log(this.compareCostType, this.defaultCompareCostType);
   },
   components: {
     DateRangePickerCalendar: DateRangePickerCalendar,

@@ -7,7 +7,7 @@
         </button>
       </div>
       <div class="p-1 col text-center">
-        {{ displayMonth.format('MMMM YYYY') }}
+        {{ displayMonth.format('MM/YYYY') }}
       </div>
       <div class="p-1" :class="calendarIndex == calendarCount ? '' : 'invisible'">
         <button type="button" class="btn btn-sm btn-light" @mousedown.prevent @click="goToNextMonth">
