@@ -3,7 +3,7 @@
     <h2 class="my-4 pb-2 border-bottom">Vue date range picker demo</h2>
 
     <h3 class="pb-2 border-bottom">Inline integration</h3>
-    <div class="mb-4">
+    <div class="mb-4 custom-date-range-picker">
       <date-range-picker
         v-on:submit="submitted"
         :default-range-select-compare="'custom'"
@@ -112,7 +112,10 @@ export default {
 
 <style>
 @import '~bootstrap/dist/css/bootstrap.min.css';
-
+.custom-date-range-picker {
+  position: relative;
+  padding-bottom: 50px;
+}
 .popover {
   max-width: 800px;
 }

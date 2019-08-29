@@ -16,7 +16,7 @@
                @focus="step = 'selectStartDate'" @blur="inputDate"
         >
         <span class="mx-2">
-        <font-awesome-icon icon="caret-right" fixed-width />
+        -
         </span>
         <input type="text" class="form-control w-100 daterangepicker-date-input"
                ref="endDate"
@@ -56,7 +56,7 @@
              @keyup.enter="inputDate"
           >
           <span class="mx-2">
-          <font-awesome-icon icon="caret-right" fixed-width />
+          -
           </span>
           <input type="text" class="form-control w-100 daterangepicker-date-input compare"
              v-if="rangeSelectCompare === 'last_period'"
@@ -83,10 +83,6 @@
           />
         </div>
       </div>
-      <div class="form-group form-inline justify-content-end mb-0">
-        <button type="button" class="btn btn-light" @click="cancel">Cancel</button>
-        <button type="button" class="btn btn-primary ml-2" :disabled="step != null" @click="submit">Submit</button>
-      </div>
     </div>
 
     <!-- Calendars -->
@@ -106,6 +102,10 @@
         v-on:selectDate="selectDate"
         v-on:nextStep="nextStep"
       />
+    </div>
+    <div class="form-group form-inline justify-content-end mb-0 custom-btn-group">
+      <button type="button" class="btn btn-light" @click="cancel">Cancel</button>
+      <button type="button" class="btn btn-primary ml-2" :disabled="step != null" @click="submit">Submit</button>
     </div>
   </div>
 </template>
@@ -397,7 +397,7 @@ export default {
 <style>
 /* Custom row */
 .daterangepicker-row {
-  margin: -0.5rem;
+  border-bottom: 1px solid #D5DAE0;
 }
 
 .daterangepicker-col {
@@ -411,22 +411,30 @@ export default {
 }
 
 /* Select menus border */
-.daterangepicker-range-border {
-  border-color: #17a2b8 !important;
+.daterangepicker-range-border:focus {
+  box-shadow: none !important;
+  border-color: #D5DAE0 !important;
 }
 
-.daterangepicker-range-border.compare {
-  border-color: #ff9307 !important;
+.daterangepicker-range-border.compare:focus {
+  box-shadow: none !important;
+  border-color: #D5DAE0 !important;
 }
 
 /* Date input focus */
 .daterangepicker-date-input:focus {
-  border-color: #17a2b8 !important;
-  box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.25) !important;
+  box-shadow: none !important;
+  border-color: #D5DAE0 !important;
 }
 
 .daterangepicker-date-input.compare:focus {
-  border-color: #ff9307 !important;
-  box-shadow: 0 0 0 0.2rem rgba(255, 147, 7, 0.25) !important;
+  border-color: #D5DAE0 !important;
+  box-shadow: none !important;
+}
+
+.custom-btn-group {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 </style>
