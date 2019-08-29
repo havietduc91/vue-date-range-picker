@@ -1,7 +1,7 @@
 <template>
   <div class="daterangepicker-calendar">
     <div class="d-flex align-items-center">
-      <div class="p-1" :class="calendarIndex == 1 ? '' : 'invisible'">
+      <div class="p-1">
         <button type="button" class="btn btn-sm btn-light" @mousedown.prevent @click="goToPrevMonth">
           <font-awesome-icon icon="caret-left" fixed-width />
         </button>
@@ -9,14 +9,14 @@
       <div class="p-1 col text-center">
         {{ displayMonth.format('MM/YYYY') }}
       </div>
-      <div class="p-1" :class="calendarIndex == calendarCount ? '' : 'invisible'">
+      <div class="p-1">
         <button type="button" class="btn btn-sm btn-light" @mousedown.prevent @click="goToNextMonth">
           <font-awesome-icon icon="caret-right" fixed-width />
         </button>
       </div>
     </div>
     <div class="d-flex justify-content-between text-center daterangepicker-calendar-row">
-      <div v-for="day in daysOfFirstWeek" :key="day.format('D')" class="col-day">{{ day.format('ddd') }}</div>
+      <div v-for="day in daysOfFirstWeek" :key="day.format('D')" class="col-day">{{ day.format('dd') }}</div>
     </div>
 
     <div class="d-flex flex-wrap justify-content-between text-center daterangepicker-calendar-row">

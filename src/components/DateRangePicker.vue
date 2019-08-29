@@ -32,9 +32,10 @@
           <label class="custom-control-label" :for="'date-range-picker-compare-' + _uid">{{ compareLabel }}</label>
         </div>
       </div>
-      <div v-if="compare">
+      <div>
         <div class="form-group">
           <select class="custom-select" name="range_select_compare" :class="compare ? 'daterangepicker-range-border compare' : ''" v-model="rangeSelectCompare"
+            :disabled="!compare"
             @change="onRangeSelectCompareChanged">
             <option v-for="(range, rangeKey) in compareRanges" :key="rangeKey" :value="rangeKey">{{ range.label }}</option>
             <option value="last_period">Last Period</option>
@@ -51,7 +52,7 @@
           <input type="text" class="form-control w-100 daterangepicker-date-input compare"
              v-if="rangeSelectCompare !== 'last_period'"
              ref="startDateCompare"
-             :disabled="rangeSelectCompare !== 'custom'"
+             :disabled="(rangeSelectCompare !== 'custom' || !compare)"
              :value="startDateCompare | dateFormat"
              @focus="step = 'selectStartDateCompare'" @blur="inputDate"
              @keyup.enter="inputDate"
@@ -69,7 +70,7 @@
              ref="endDateCompare"
              v-if="rangeSelectCompare !== 'last_period'"
              :value="endDateCompare | dateFormat"
-             :disabled="rangeSelectCompare !== 'custom'"
+             :disabled="(rangeSelectCompare !== 'custom' || !compare)"
              @focus="step = 'selectEndDateCompare'" @blur="inputDate"
              @keyup.enter="inputDate"
           >
@@ -79,6 +80,7 @@
             v-model="compareCostType"
             :options="compareCostTypeOptions"
             class="mb-1"
+            :disabled="!compare"
             @change="changeCompareCostType"
             stacked
           />
