@@ -365,7 +365,7 @@ export default {
   watch: {
     rangeSelect: function(rangeKey) {
       this.selectRange(rangeKey)
-    },
+    }
     // rangeSelectCompare: function(rangeKey) {
     //   if (rangeKey) {
     //     this.selectRangeCompare(rangeKey)
