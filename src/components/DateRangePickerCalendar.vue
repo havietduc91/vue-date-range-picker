@@ -62,6 +62,9 @@ export default {
       return this.days.slice(0, 7)
     }
   },
+  mounted() {
+
+  },
   methods: {
     dayClass: function(day) {
       let classes = []
@@ -83,6 +86,21 @@ export default {
         classes.push('daterangepicker-cursor-pointer')
       }
 
+      if (day.isSame(this.startDate)) {
+        classes.push('daterangepicker-start-date')
+      }
+
+      if (day.isSame(this.endDate)) {
+        classes.push('daterangepicker-end-date')
+      }
+
+      if (day.isSame(this.startDateCompare)) {
+        classes.push('daterangepicker-compare-start-date')
+      }
+
+      if (day.isSame(this.endDateCompare)) {
+        classes.push('daterangepicker-compare-end-date')
+      }
       return classes.join(' ')
     },
     dayMouseOver: function(day) {
@@ -128,20 +146,48 @@ export default {
 }
 
 .daterangepicker-range {
-  background-color: #17a2b8 !important;
-  color: #ffffff;
+  background-color: rgba(30,164,255,0.1) !important;
+  color: #222222;
 }
 
 .daterangepicker-range-compare {
-  background-color: #ff9307;
-  color: #ffffff;
+  background-color: rgba(255,124,0,0.1);
+  color: #222222;
 }
 
 .daterangepicker-range.daterangepicker-range-compare {
-  background: linear-gradient(0, #ff9307 50%, #17a2b8 50%);
+  background: linear-gradient(0, rgba(30,164,255,0.1) 50%, rgba(255,124,0,0.1) 50%);
 }
 
 .daterangepicker-cursor-pointer {
   cursor: pointer;
+}
+
+.daterangepicker-start-date {
+  background-color: #1ea4ff !important;
+  color: #ffffff;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.daterangepicker-end-date {
+  background-color: #1ea4ff !important;
+  color: #ffffff;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.daterangepicker-compare-start-date {
+  background-color: #ff8660 !important;
+  color: #ffffff;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.daterangepicker-compare-end-date {
+  background-color: #ff8660 !important;
+  color: #ffffff;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 </style>
