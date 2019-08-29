@@ -2,7 +2,7 @@
   <div class="d-flex daterangepicker-row">
     <!-- Right form -->
     <div class="daterangepicker-col">
-      <span v-if="setRangeSelectLabel" class="set-range-select-title">{{ setRangeSelectLabel }}</span>
+      <div v-if="setRangeSelectLabel" class="set-range-select-title">{{ setRangeSelectLabel }}</div>
       <div class="form-group">
         <select class="custom-select" name="range_select" :class="compare ? 'daterangepicker-range-border' : ''" v-model="rangeSelect">
           <option v-for="(range, rangeKey) in ranges" :key="rangeKey" :value="rangeKey">{{ range.label }}</option>
@@ -421,6 +421,9 @@ export default {
 .daterangepicker-col {
   padding: 0.5rem;
   flex-basis: 100%;
+}
+.set-range-select-title {
+  margin-bottom: 8px;
 }
 
 /* Make sure that the full date (YYYY-MM-DD) is displayed */
