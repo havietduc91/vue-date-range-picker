@@ -73,6 +73,15 @@
              @keyup.enter="inputDate"
           >
         </div>
+        <div class="form-group" v-if="compareCostTypeOptions.length > 0">
+          <b-form-radio-group
+            v-model="compareCostType"
+            :options="compareCostTypeOptions"
+            class="mb-1"
+            @change="changeCompareCostType"
+            stacked
+          />
+        </div>
       </div>
       <div class="form-group form-inline justify-content-end mb-0">
         <button type="button" class="btn btn-light" @click="cancel">Cancel</button>
@@ -120,6 +129,12 @@ export default {
       type: Boolean,
       default: true
     },
+    compareCostTypeOptions: {
+      type: Array,
+      default: function() {
+        return []
+      }
+    },
     ranges: {
       type: Object,
       default: function() {
@@ -158,6 +173,7 @@ export default {
       endDateCompare: '',
       rangeSelect: null,
       rangeSelectCompare: 'lastPeriod',
+      compareCostType: 'individual_cost',
       compare: false,
       month: moment.utc().subtract(1, 'month').startOf('month'),
       step: null
@@ -208,6 +224,9 @@ export default {
           $vm.$refs.startDate && $vm.$refs.startDate.focus()
         }, 0)
       }
+    },
+    changeCompareCostType: function(checked) {
+      this.compareCostType = checked
     },
     selectRangeCompare: function(event) {
       const rangeKey = event.target.value
@@ -290,7 +309,8 @@ export default {
         rangeSelect: this.rangeSelect,
         rangeSelectCompare: this.rangeSelectCompare,
         startDateCompare: this.startDateCompare,
-        endDateCompare: this.endDateCompare
+        endDateCompare: this.endDateCompare,
+        compareCostType: this.compareCostType
       })
     },
     // Cancel button
