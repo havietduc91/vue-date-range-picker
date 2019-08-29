@@ -34,21 +34,21 @@
       <div v-if="compare">
         <div class="form-group">
           <select class="custom-select" name="range_select_compare" :class="compare ? 'daterangepicker-range-border compare' : ''" v-model="rangeSelectCompare"
-            @change="selectRangeCompare">
+            @change="onRangeSelectCompareChanged">
             <option v-for="(range, rangeKey) in compareRanges" :key="rangeKey" :value="rangeKey">{{ range.label }}</option>
-            <option value="lastPeriod">Last Period</option>
+            <option value="last_period">Last Period</option>
             <option value="custom">Custom range</option>
           </select>
         </div>
         <div class="form-group form-inline flex-nowrap">
           <input type="text" class="form-control w-100 daterangepicker-date-input compare"
-             v-if="rangeSelectCompare === 'lastPeriod'"
+             v-if="rangeSelectCompare === 'last_period'"
              ref="startDateCompare"
              disabled
              value=""
           >
           <input type="text" class="form-control w-100 daterangepicker-date-input compare"
-             v-if="rangeSelectCompare !== 'lastPeriod'"
+             v-if="rangeSelectCompare !== 'last_period'"
              ref="startDateCompare"
              :disabled="rangeSelectCompare !== 'custom'"
              :value="startDateCompare | dateFormat"
@@ -59,14 +59,14 @@
           <font-awesome-icon icon="caret-right" fixed-width />
           </span>
           <input type="text" class="form-control w-100 daterangepicker-date-input compare"
-             v-if="rangeSelectCompare === 'lastPeriod'"
+             v-if="rangeSelectCompare === 'last_period'"
              value=""
              ref="endDateCompare"
              disabled
           >
           <input type="text" class="form-control w-100 daterangepicker-date-input compare"
              ref="endDateCompare"
-             v-if="rangeSelectCompare !== 'lastPeriod'"
+             v-if="rangeSelectCompare !== 'last_period'"
              :value="endDateCompare | dateFormat"
              :disabled="rangeSelectCompare !== 'custom'"
              @focus="step = 'selectEndDateCompare'" @blur="inputDate"
@@ -135,6 +135,10 @@ export default {
         return []
       }
     },
+    defaultCompareCostType: {
+      type: String,
+      default: ''
+    },
     ranges: {
       type: Object,
       default: function() {
@@ -162,7 +166,27 @@ export default {
     },
     defaultRangeSelectCompare: {
       type: String,
-      default: 'lastPeriod'
+      default: 'last_period'
+    },
+    defaultStartDate: {
+      type: String,
+      default: null
+    },
+    defaultEndDate: {
+      type: String,
+      default: null
+    },
+    defaultStartDateCompare: {
+      type: String,
+      default: null
+    },
+    defaultEndDateCompare: {
+      type: String,
+      default: null
+    },
+    defaultCompare: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -172,8 +196,8 @@ export default {
       startDateCompare: '',
       endDateCompare: '',
       rangeSelect: null,
-      rangeSelectCompare: 'lastPeriod',
-      compareCostType: 'individual_cost',
+      rangeSelectCompare: 'last_period',
+      compareCostType: null,
       compare: false,
       month: moment.utc().subtract(1, 'month').startOf('month'),
       step: null
@@ -228,8 +252,11 @@ export default {
     changeCompareCostType: function(checked) {
       this.compareCostType = checked
     },
-    selectRangeCompare: function(event) {
+    onRangeSelectCompareChanged: function(event) {
       const rangeKey = event.target.value
+      this.selectRangeCompare(rangeKey)
+    },
+    selectRangeCompare: function(rangeKey) {
       let predefinedRange = false
 
       // Predefined compareRanges ranges
@@ -260,7 +287,7 @@ export default {
         setTimeout(function() {
           $vm.$refs.startDateCompare && $vm.$refs.startDateCompare.focus()
         }, 0)
-      } else if (rangeKey === 'lastPeriod') {
+      } else if (rangeKey === 'last_period') {
         this.startDateCompare = ''
         this.endDateCompare = ''
       }
@@ -322,6 +349,11 @@ export default {
     rangeSelect: function(rangeKey) {
       this.selectRange(rangeKey)
     }
+    // rangeSelectCompare: function(rangeKey) {
+    //   if (rangeKey) {
+    //     this.selectRangeCompare(rangeKey)
+    //   }
+    // }
   },
   filters: {
     dateFormat: function(value) {
@@ -332,6 +364,31 @@ export default {
     // Initialize ranges
     this.rangeSelect = this.defaultRangeSelect
     this.rangeSelectCompare = this.defaultRangeSelectCompare
+    this.compare = this.defaultCompare
+    if (this.rangeSelect === 'custom') {
+      this.startDate = moment.utc().startOf('month')
+      if (this.defaultEndDate) {
+        this.startDate = moment.utc(this.defaultStartDate, 'YYYY/MM/DD')
+      }
+      this.endDate = moment.utc().endOf('month').startOf('day')
+      if (this.defaultEndDate) {
+        this.endDate = moment.utc(this.defaultEndDate, 'YYYY/MM/DD')
+      }
+    }
+    if (this.rangeSelectCompare === 'custom') {
+      this.startDateCompare = moment.utc().startOf('month')
+      if (this.defaultStartDateCompare) {
+        this.startDateCompare = moment.utc(this.defaultStartDateCompare, 'YYYY/MM/DD')
+      }
+      this.endDateCompare = moment.utc().endOf('month').startOf('day')
+      if (this.defaultEndDateCompare) {
+        this.endDateCompare = moment.utc(this.defaultEndDateCompare, 'YYYY/MM/DD')
+      }
+    }
+    if (this.defaultCompareCostType) {
+      this.compareCostType = this.defaultCompareCostType
+    }
+    console.log(this.compareCostType, this.defaultCompareCostType)
   },
   components: { DateRangePickerCalendar, FontAwesomeIcon }
 }
