@@ -7,9 +7,13 @@
       <date-range-picker
         v-on:submit="submitted"
         :default-range-select-compare="'custom'"
-        :default-start-date-compare="'2019/07/01'"
+        :default-start-date-compare="'2019-08-02'"
         :default-compare="true"
         :default-compare-cost-type="'B'"
+        :cancel-label="'Cancel'"
+        :submit-label="'Ok'"
+        :compare-label="'Compare'"
+        :set-range-select-label="'Set time frame'"
         :compare-cost-type-options="[
           {
              text: 'I',
@@ -104,7 +108,7 @@ export default {
   },
   filters: {
     dateFormat: function(value) {
-      return value ? value.format('YYYY-MM-DD') : ''
+      return value ? value.format('MM/DD/YYYY') : ''
     }
   }
 }
