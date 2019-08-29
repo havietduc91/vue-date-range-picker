@@ -2,6 +2,7 @@
   <div class="d-flex daterangepicker-row">
     <!-- Right form -->
     <div class="daterangepicker-col">
+      <span v-if="setRangeSelectLabel" class="set-range-select-title">{{ setRangeSelectLabel }}</span>
       <div class="form-group">
         <select class="custom-select" name="range_select" :class="compare ? 'daterangepicker-range-border' : ''" v-model="rangeSelect">
           <option v-for="(range, rangeKey) in ranges" :key="rangeKey" :value="rangeKey">{{ range.label }}</option>
@@ -28,7 +29,7 @@
       <div class="form-group" v-if="allowCompare">
         <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" :id="'date-range-picker-compare-' + _uid" v-model="compare">
-          <label class="custom-control-label" :for="'date-range-picker-compare-' + _uid">Compare</label>
+          <label class="custom-control-label" :for="'date-range-picker-compare-' + _uid">{{ compareLabel }}</label>
         </div>
       </div>
       <div v-if="compare">
@@ -104,8 +105,8 @@
       />
     </div>
     <div class="form-group form-inline justify-content-end mb-0 custom-btn-group">
-      <button type="button" class="btn btn-light" @click="cancel">Cancel</button>
-      <button type="button" class="btn btn-primary ml-2" :disabled="step != null" @click="submit">Submit</button>
+      <button type="button" class="btn btn-light" @click="cancel">{{ cancelLabel }}</button>
+      <button type="button" class="btn btn-primary ml-2" :disabled="step != null" @click="submit">{{ submitLabel }}</button>
     </div>
   </div>
 </template>
@@ -124,6 +125,22 @@ export default {
     calendarCount: {
       type: Number,
       default: 2
+    },
+    cancelLabel: {
+      type: String,
+      default: 'Cancel'
+    },
+    submitLabel: {
+      type: String,
+      default: 'Cancel'
+    },
+    compareLabel: {
+      type: String,
+      default: 'Compare'
+    },
+    setRangeSelectLabel: {
+      type: String,
+      default: ''
     },
     allowCompare: {
       type: Boolean,
@@ -321,7 +338,7 @@ export default {
     },
     // Try to update the step date from an input value
     inputDate: function(input) {
-      let date = moment.utc(input.target.value, 'YYYY-MM-DD')
+      let date = moment.utc(input.target.value, 'MM/DD/YYYY')
       if (date.isValid()) {
         this.selectDate(date)
       }
@@ -348,7 +365,7 @@ export default {
   watch: {
     rangeSelect: function(rangeKey) {
       this.selectRange(rangeKey)
-    }
+    },
     // rangeSelectCompare: function(rangeKey) {
     //   if (rangeKey) {
     //     this.selectRangeCompare(rangeKey)
@@ -357,7 +374,7 @@ export default {
   },
   filters: {
     dateFormat: function(value) {
-      return value ? value.format('YYYY-MM-DD') : ''
+      return value ? value.format('MM/DD/YYYY') : ''
     }
   },
   created: function() {
@@ -388,7 +405,6 @@ export default {
     if (this.defaultCompareCostType) {
       this.compareCostType = this.defaultCompareCostType
     }
-    console.log(this.compareCostType, this.defaultCompareCostType)
   },
   components: { DateRangePickerCalendar, FontAwesomeIcon }
 }
