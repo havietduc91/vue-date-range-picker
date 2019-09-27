@@ -14,17 +14,6 @@
         :submit-label="'Ok'"
         :compare-label="'Compare'"
         :set-range-select-label="'Set time frame'"
-        :compare-cost-type-options="[
-          {
-             text: 'I',
-             value: 'I',
-          },
-          {
-             text: 'B',
-             value: 'B',
-             isDefault: true
-          }
-        ]"
       />
     </div>
 
