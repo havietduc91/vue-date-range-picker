@@ -75,16 +75,6 @@
              @keyup.enter="inputDate"
           >
         </div>
-        <div class="form-group" v-if="compareCostTypeOptions.length > 0">
-          <b-form-radio-group
-            v-model="compareCostType"
-            :options="compareCostTypeOptions"
-            class="mb-1"
-            :disabled="!compare"
-            @change="changeCompareCostType"
-            stacked
-          />
-        </div>
       </div>
     </div>
 
@@ -148,16 +138,6 @@ export default {
       type: Boolean,
       default: true
     },
-    compareCostTypeOptions: {
-      type: Array,
-      default: function() {
-        return []
-      }
-    },
-    defaultCompareCostType: {
-      type: String,
-      default: ''
-    },
     ranges: {
       type: Object,
       default: function() {
@@ -216,7 +196,6 @@ export default {
       endDateCompare: '',
       rangeSelect: null,
       rangeSelectCompare: 'last_period',
-      compareCostType: null,
       compare: false,
       month: moment.utc().subtract(1, 'month').startOf('month'),
       step: null
@@ -267,9 +246,6 @@ export default {
           $vm.$refs.startDate && $vm.$refs.startDate.focus()
         }, 0)
       }
-    },
-    changeCompareCostType: function(checked) {
-      this.compareCostType = checked
     },
     onRangeSelectCompareChanged: function(event) {
       const rangeKey = event.target.value
@@ -355,8 +331,7 @@ export default {
         rangeSelect: this.rangeSelect,
         rangeSelectCompare: this.rangeSelectCompare,
         startDateCompare: this.startDateCompare,
-        endDateCompare: this.endDateCompare,
-        compareCostType: this.compareCostType
+        endDateCompare: this.endDateCompare
       })
     },
     // Cancel button
@@ -403,9 +378,6 @@ export default {
       if (this.defaultEndDateCompare) {
         this.endDateCompare = moment.utc(this.defaultEndDateCompare, 'YYYY/MM/DD')
       }
-    }
-    if (this.defaultCompareCostType) {
-      this.compareCostType = this.defaultCompareCostType
     }
   },
   components: { DateRangePickerCalendar, FontAwesomeIcon }
